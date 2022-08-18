@@ -1,20 +1,22 @@
 import PropTypes from "prop-types";
+import { Box } from "components/Box";
+import { UploadStatistics, Stat, Title, Label, Percentages } from "./Statistics.styled";
 
 export const Statistics = ({title, stats}) => {
     return (
-        <section class="statistics">
-            {title && <h2 class="title">{title}</h2>}
-            <ul class="stat-list">
+        <UploadStatistics>
+            {title && <Title>{title}</Title>}
+            <Box as='ul' display='flex' align-items='center'>
                 {stats.map(stat => {
                     return (
-                    <li key={stat.id} class="item">
-                        <span class="label">{stat.label}</span>
-                        <span class="percentage">{stat.percentage}%</span>
-                    </li>
+                    <Stat key={stat.id}>
+                        <Label>{stat.label}</Label>
+                        <Percentages>{stat.percentage}%</Percentages>
+                    </Stat>
                     );
                 })}
-            </ul>
-        </section>
+            </Box>
+        </UploadStatistics>
     );
 }
 

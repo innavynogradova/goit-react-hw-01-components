@@ -1,27 +1,29 @@
+import { Box } from "components/Box";
+import { TableHead, TableRow } from "./TransactionHistory.styled";
 import PropTypes from "prop-types";
 
 export const TransactionHistory = ({items}) => {
     return (
-        <table class="transaction-history">
-            <thead>
+        <Box as='table' mx='auto' width='50%' py={16}>
+            <TableHead>
                     <tr>
                         <th>Type</th>
                         <th>Amount</th>
                         <th>Currency</th>
                     </tr>
-            </thead>
+            </TableHead>
             <tbody>
                 {items.map((item) => {
                     return (
-                    <tr key={item.id}>
+                    <TableRow key={item.id}>
                         <td>{item.type}</td>
                         <td>{item.amount}</td>
                         <td>{item.currency}</td>
-                    </tr>
+                    </TableRow>
                     )
                 })}
             </tbody>
-        </table>
+        </Box>
     )
 }
 
